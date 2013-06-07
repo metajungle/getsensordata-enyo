@@ -6,6 +6,12 @@
 	padding: 15px;
 }
 
+.menu {
+	display: block;
+	margin: 0;
+	float: right;
+}
+
 .panels-sample-sliding-panels > * {
 	width: 320px;
 	background-color: #EAEAEA;
@@ -28,7 +34,7 @@
 
 .pullout {
 	position: absolute;
-	top: 57px;
+	top: 0px;
 	right: 0;
 	bottom: 0;
 	width: 320px;
@@ -44,7 +50,7 @@
 	height: 100%;
 	width: 20px;
 	left: -20px;
-	background: url(../images/sliding-shadow.png) repeat-y;
+	background: url(../assets/images/sliding-shadow.png) repeat-y;
 	background-size: 20px 2px;
 }
 
