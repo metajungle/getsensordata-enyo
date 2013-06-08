@@ -2,40 +2,37 @@ enyo.kind({
     name: "App",
     kind: "FittableRows",
     fit: true,
-    components: [
-    // {
-    //     kind: "onyx.Toolbar",
-    //     content: "getsensordata.net"
-    // }, 
-    {
+    components: [{
         kind: "Panels",
         name: "main",
         fit: true,
         classes: "panels-sample-sliding-panels",
         arrangerKind: "CollapsingArranger",
+        // make sure map is updated 
+        onTransitionFinish: "redrawMap",
         wrap: false,
         components: [{
             content: "Test",
-            tag: 'p', 
+            tag: 'span',
         }, {
-            kind: "FittableRows", components: [{
-                kind: "onyx.Toolbar", components: [{
-                    kind: "onyx.Grabber", 
+            kind: "FittableRows",
+            components: [{
+                kind: "onyx.Toolbar",
+                components: [{
+                    kind: "onyx.Grabber",
+                }, {
+                    classes: "header-title", 
+                    content: "getsensordata.net"
+
                 }]
-            }, 
-            {
-                kind: "MapView", 
+            }, {
+                kind: "MapView",
                 fit: true,
-            }
-            ]
+            }]
         }]
-    }], 
+    }],
     setupItem: function(inSender, inEvent) {
         this.$[inSender.item].setContent("This is row number: " + inEvent.index);
-    },
-    helloWorldTap: function(inSender, inEvent) {
-        //this.$.main.addContent("The button was tapped.<br/>");
-        alert('hello');
     },
     togglePane: function(inSender, inEvent) {
         map.invalidateSize();
@@ -48,5 +45,10 @@ enyo.kind({
     toggleTime: function(sender, event) {
 
     },
+    redrawMap: function(sender, event) {
+        /* re-draw map when panel transition is finished to make
+           sure the new size is taken into consideration */
+        if (typeof map != 'undefined') map.invalidateSize(false);
+    }
 
 });
