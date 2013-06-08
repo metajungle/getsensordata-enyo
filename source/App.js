@@ -2,10 +2,12 @@ enyo.kind({
     name: "App",
     kind: "FittableRows",
     fit: true,
-    components: [{
-        kind: "onyx.Toolbar",
-        content: "getsensordata.net"
-    }, {
+    components: [
+    // {
+    //     kind: "onyx.Toolbar",
+    //     content: "getsensordata.net"
+    // }, 
+    {
         kind: "Panels",
         name: "main",
         fit: true,
@@ -16,8 +18,16 @@ enyo.kind({
             content: "Test",
             tag: 'p', 
         }, {
-            kind: "MapView",
-            fit: true, 
+            kind: "FittableRows", components: [{
+                kind: "onyx.Toolbar", components: [{
+                    kind: "onyx.Grabber", 
+                }]
+            }, 
+            {
+                kind: "MapView", 
+                fit: true,
+            }
+            ]
         }]
     }], 
     setupItem: function(inSender, inEvent) {
