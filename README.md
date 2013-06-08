@@ -1,6 +1,3 @@
-bootplate
-=========
+# Get Sensor Data
 
-Application template for packaged Enyo
-
-Refer to the [Wiki](https://github.com/enyojs/enyo/wiki/Bootplate) for how to get started.
+This is the early stages of a project I'm playing with for discovering sensor data. 
